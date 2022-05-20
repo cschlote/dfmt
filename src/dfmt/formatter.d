@@ -1010,7 +1010,7 @@ private:
                     newline();
                 else if (config.dfmt_brace_style.among(BraceStyle.knr, BraceStyle.linux)
                         && astInformation.funBodyLocations.canFindIndex(tIndex)
-                        && (peekBackIs(tok!")") || (!peekBackIs(tok!"do") && peekBack().text != "body")))
+                        && (peekBackIs(tok!")") || (!peekBackIs(tok!"do") && peekBack().text != "body" && peekBack().text != "unittest")))
                     newline();
                 else if (!peekBackIsOneOf(true, tok!"{", tok!"}", tok!";"))
                     write(" ");
