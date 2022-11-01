@@ -65,6 +65,8 @@ int diff(string refFileName, string outFileName)
             writeln("Found difference between ", outFileName, " and ", refFileName, " on line ", i + 1, ":");
             writefln("out: %(%s%)", [outLines[i]]); // Wrapping in array shows line endings.
             writefln("ref: %(%s%)", [refLines[i]]);
+            string cmd = format("meld %s %s", outFileName, refFileName);
+            executeShell(cmd);
             return 1;
         }
     if (outLines.length < refLines.length)
